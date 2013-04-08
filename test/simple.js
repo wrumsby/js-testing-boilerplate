@@ -40,6 +40,14 @@ function (chai, sinon, simple) {
 			});
 		});
 
+		describe('async', function () {
+			it('should invoke the callback', function (done) {
+				simple.async(function () {
+					done();
+				});
+			});
+		});
+
 		describe('getData', function () {
 			var xhr,
 				originalFn;

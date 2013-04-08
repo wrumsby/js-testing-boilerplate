@@ -1,4 +1,4 @@
-/*global define */
+/*global define, window */
 define(
 [
 	'reqwest'
@@ -35,6 +35,10 @@ function (reqwest) {
 				dateStamp = format(now);
 
 			return name + ':' + dateStamp;
+		},
+
+		async: function (callback) {
+			window.setTimeout(callback, 10);
 		},
 
 		getData: function (err, callback) {
