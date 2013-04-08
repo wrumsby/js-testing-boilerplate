@@ -6,7 +6,7 @@ define(
 function (reqwest) {
 	'use strict';
 
-	function pad(n) {
+	function pad (n) {
 		if (n < 10) {
 			return '0' + n;
 		}
