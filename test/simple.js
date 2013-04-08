@@ -40,9 +40,9 @@ function (chai, sinon, simple) {
 			});
 		});
 
-		describe('async', function () {
+		describe('later', function () {
 			it('should invoke the callback', function (done) {
-				simple.async(function () {
+				simple.later(function () {
 					done();
 				});
 			});

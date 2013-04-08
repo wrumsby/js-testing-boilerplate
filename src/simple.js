@@ -37,7 +37,7 @@ function (reqwest) {
 			return name + ':' + dateStamp;
 		},
 
-		async: function (callback) {
+		later: function (callback) {
 			window.setTimeout(callback, 10);
 		},
 
