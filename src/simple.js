@@ -14,24 +14,25 @@ function (reqwest) {
 		return '' + n;
 	}
 
+	function format (date) {
+		var s = '';
+
+		s += date.getFullYear() + '-';
+		s += pad(date.getMonth() + 1) + '-';
+		s += pad(date.getDate());
+
+		return s;
+	}
+
 	return {
 		truth: function () {
 			return true;
 		},
 
-		format: function (date) {
-			var s = '';
-
-			s += date.getFullYear() + '-';
-			s += pad(date.getMonth() + 1) + '-';
-			s += pad(date.getDate());
-
-			return s;
-		},
 
 		stamp: function (name) {
 			var now = new Date(),
-				dateStamp = this.format(now);
+				dateStamp = format(now);
 
 			return name + ':' + dateStamp;
 		},
