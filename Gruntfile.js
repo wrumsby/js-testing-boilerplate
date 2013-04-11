@@ -9,7 +9,10 @@ module.exports = function(grunt) {
 			files: files
 		},
 		mocha: {
-			index: ['test-runner.html']
+			index: ['test-runner.html'],
+			options: {
+				reporter: 'Nyan'
+			}
 		},
 		watch: {
 			scripts: {
