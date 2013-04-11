@@ -41,11 +41,11 @@ function (reqwest) {
 			window.setTimeout(callback, 10);
 		},
 
-		getData: function (err, callback) {
+		getData: function (success, failure) {
 			reqwest({
 				url: 'path/to/html',
-				error: err,
-				success: callback
+				error: failure,
+				success: success
 			});
 		}
 	};

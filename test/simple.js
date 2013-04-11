@@ -49,43 +49,25 @@ function (chai, sinon, simple) {
 		});
 
 		describe('getData', function () {
-			var xhr,
-				originalFn;
+			var server;
 
 			before(function () {
-				var request;
+				var status = 200,
+					headers = { 'Content-Type': 'application/json' },
+					body = '{}';
 
-				xhr = sinon.useFakeXMLHttpRequest();
+				server = sinon.fakeServer.create();
+				server.autoRespond = true;
 
-				xhr.onCreate = function (req) {
-					request = req;
-				};
-
-				originalFn = simple.getData;
-
-				simple.getData = function (err, callback) {
-					var headers,
-						body = JSON.stringify({});
-
-					originalFn(err, callback);
-
-					headers = {
-						'Content-Type': 'application/json'
-					};
-
-					request.respond(200, headers, body);
-				};
+				server.respondWith([status, headers, body]);
 			});
 
 			after(function () {
-				xhr.restore();
-				simple.getData = originalFn;
+				server.restore();
 			});
 
 			it('should invoke the callback', function (done) {
-				simple.getData(function () {}, function () {
-					done();
-				});
+				simple.getData(done);
 			});
 		});
 	});
