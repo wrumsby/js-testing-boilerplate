@@ -1,12 +1,12 @@
 module.exports = function(grunt) {
-	var files = ['src/**/*.js', 'test/**/*.js'];
+	var files = ['test-suites.js', 'src/**/*.js', 'test/**/*.js'];
 
 	grunt.initConfig({
 		jshint: {
 			options: {
 				jshintrc: '.jshintrc'
 			},
-			files: files.concat('test-suites.js')
+			files: files
 		},
 		mocha: {
 			index: ['test-runner.html'],
