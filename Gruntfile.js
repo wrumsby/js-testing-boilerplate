@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 			options: {
 				jshintrc: '.jshintrc'
 			},
-			files: files
+			files: files.concat('test-suites.js')
 		},
 		mocha: {
 			index: ['test-runner.html'],
