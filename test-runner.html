@@ -15,8 +15,7 @@
       (function () {
         'use strict';
 
-        var mocha = window.mocha,
-          tests = [];
+        var mocha = window.mocha;
 
         mocha.setup('bdd');
 		mocha.setup({
@@ -24,10 +23,10 @@
 		});
 
         // define these in a tests.js
-        tests.push('test/simple');
-
-        require(tests, function () {
-          mocha.run();
+        require(['test-suites'], function (tests) {
+	        require(tests, function () {
+	          mocha.run();
+	        });
         });
       }());
     </script>
